@@ -1,3 +1,4 @@
+/* style.css file*/
 body {
 	display: flex;
 	justify-content: center;
@@ -26,17 +27,17 @@ body {
 	box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
 }
 
-#qr-reader-container {
+#my-qr-reader {
 	padding: 20px !important;
 	border: 1.5px solid #b2b2b2 !important;
 	border-radius: 8px;
 }
 
-#qr-reader-container img[alt="Info icon"] {
+#my-qr-reader img[alt="Info icon"] {
 	display: none;
 }
 
-#qr-reader-container img[alt="Camera based scan"] {
+#my-qr-reader img[alt="Camera based scan"] {
 	width: 100px !important;
 	height: 100px !important;
 }
