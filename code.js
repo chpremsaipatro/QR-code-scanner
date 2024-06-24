@@ -1,31 +1,26 @@
-// customScanner.js file
+// script.js file
 
-// Function to execute once the DOM is fully loaded
-function onDocumentReady(callback) {
-	if (document.readyState === "complete" || document.readyState === "interactive") {
-		// Execute the callback after a short delay if the document is already ready
-		setTimeout(callback, 1000);
+function domReady(fn) {
+	if (
+		document.readyState === "complete" ||
+		document.readyState === "interactive"
+	) {
+		setTimeout(fn, 1000);
 	} else {
-		// Wait for the DOMContentLoaded event if the document is not ready yet
-		document.addEventListener("DOMContentLoaded", callback);
+		document.addEventListener("DOMContentLoaded", fn);
 	}
 }
 
-// Call the function when the document is ready
-onDocumentReady(function () {
+domReady(function () {
 
-	// Function to handle successful QR code scans
-	function handleScanSuccess(decodedText, decodedResult) {
-		// Display an alert with the decoded text and result
-		alert("Your QR code content is: " + decodedText, decodedResult);
+	// If found you qr code
+	function onScanSuccess(decodeText, decodeResult) {
+		alert("You Qr is : " + decodeText, decodeResult);
 	}
 
-	// Initialize the QR code scanner
-	let qrCodeScanner = new Html5QrcodeScanner(
-		"qr-reader-container",  // Element ID for the scanner
-		{ fps: 10, qrbox: 250 }  // Scanner configuration
+	let htmlscanner = new Html5QrcodeScanner(
+		"my-qr-reader",
+		{ fps: 10, qrbos: 250 }
 	);
-
-	// Render the scanner and set the success callback
-	qrCodeScanner.render(handleScanSuccess);
+	htmlscanner.render(onScanSuccess);
 });
